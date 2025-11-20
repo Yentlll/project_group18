@@ -67,7 +67,7 @@ fun LoginScreen(user: String) {
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun LoginPreview() {
     Projectgroup18Theme {
         LoginScreen("Testuser")
     }
