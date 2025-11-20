@@ -19,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.project_group18.ui.theme.Projectgroup18Theme
@@ -57,7 +58,11 @@ fun LoginScreen(user: String) {
 
         Spacer(Modifier.height(24.dp))
 
-        Text("Welcome to Twatter $user!", style = MaterialTheme.typography.headlineMedium)
+        Text(
+            "Welcome to Twatter $user!",
+            style = MaterialTheme.typography.headlineMedium,
+            textAlign = TextAlign.Center
+        )
     }
 }
 
