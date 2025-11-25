@@ -22,14 +22,3 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-
-
-
-
-@Preview(showBackground = true)
-@Composable
-fun LoginPreview() {
-    Projectgroup18Theme {
-        LoginScreen("Testuser")
-    }
-}
