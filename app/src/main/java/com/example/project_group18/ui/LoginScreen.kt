@@ -32,15 +32,18 @@ fun LoginScreen(user: String) {
         Image(
             painter = painterResource(id = R.drawable.logo_app),
             contentDescription = "App Logo Twatter",
-            modifier = Modifier.size(160.dp)
+            modifier = Modifier.size(135.dp)
         )
 
         Spacer(Modifier.height(24.dp))
 
-        Text(
-            "Welcome to Twatter $user!",
-            style = MaterialTheme.typography.headlineMedium,
-            textAlign = TextAlign.Center
-        )
+
+    TimelineScreen(user = user)
+
+    //Text(
+        //    "Welcome to Twatter $user!",
+        //    style = MaterialTheme.typography.headlineMedium,
+        //    textAlign = TextAlign.Center
+        //)
     }
 }
