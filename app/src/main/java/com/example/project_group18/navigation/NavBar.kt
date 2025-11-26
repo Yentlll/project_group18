@@ -27,8 +27,9 @@ import androidx.navigation.compose.rememberNavController
 
 import com.example.project_group18.R
 import com.example.project_group18.ui.LoginScreen
+import com.example.project_group18.ui.TimelineScreen
 
-@Composable
+/*@Composable
 fun TimelineScreen(modifier: Modifier = Modifier) {
     Box(
         modifier = Modifier.fillMaxSize(),
@@ -36,7 +37,7 @@ fun TimelineScreen(modifier: Modifier = Modifier) {
     ){
         Text("Timeline")
     }
-}
+}*/
 
 @Composable
 fun SettingScreen(modifier: Modifier = Modifier) {
@@ -72,7 +73,7 @@ fun AppNavHost(
             composable(destination.route){
                 when (destination){
                     Destination.LOGIN -> LoginScreen("john")
-                    Destination.TIMELINE -> TimelineScreen()
+                    Destination.TIMELINE -> TimelineScreen("john")
                     Destination.SETTINGS -> SettingScreen()
                 }
             }
