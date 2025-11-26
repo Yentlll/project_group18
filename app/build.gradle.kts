@@ -53,6 +53,8 @@ dependencies {
     implementation(libs.androidx.room.common.jvm)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.navigation.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -64,4 +66,5 @@ dependencies {
     //Room
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
+
 }
