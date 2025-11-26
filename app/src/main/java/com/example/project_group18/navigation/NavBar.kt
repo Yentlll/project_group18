@@ -3,10 +3,6 @@ package com.example.project_group18.navigation
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarDefaults
@@ -20,22 +16,15 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 
-@Composable
-fun LoginScreens(modifier: Modifier = Modifier) {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ){
-        Text("Login Screen")
-    }
-}
+import com.example.project_group18.R
+import com.example.project_group18.ui.LoginScreen
 
 @Composable
 fun TimelineScreen(modifier: Modifier = Modifier) {
@@ -60,12 +49,12 @@ fun SettingScreen(modifier: Modifier = Modifier) {
 enum class Destination(
     val route: String,
     val label: String,
-    val icon: ImageVector,
+    val iconRes: Int,
     val contentDescription: String
 ) {
-    LOGIN("Login Screen","Login Screen", Icons.Default.AccountCircle, "login"),
-    TIMELINE("Timeline","Timeline", Icons.Default.Home, "timeline"),
-    SETTINGS("Settings","Settings", Icons.Default.Settings, "settings")
+    LOGIN("Login Screen","Login Screen", R.drawable.login, "login"),
+    TIMELINE("Timeline","Timeline", R.drawable.timeline, "timeline"),
+    SETTINGS("Settings","Settings", R.drawable.settings, "settings")
 }
 
 @Composable
@@ -80,7 +69,7 @@ fun AppNavHost(
         Destination.entries.forEach{ destination ->
             composable(destination.route){
                 when (destination){
-                    Destination.LOGIN -> LoginScreens()
+                    Destination.LOGIN -> LoginScreen("john")
                     Destination.TIMELINE -> TimelineScreen()
                     Destination.SETTINGS -> SettingScreen()
                 }
@@ -101,7 +90,7 @@ fun NavigationBar(modifier: Modifier = Modifier){
         modifier = modifier,
         bottomBar = {
             NavigationBar(windowInsets = NavigationBarDefaults.windowInsets) {
-                Destination.entries.forEachIndexed { index, destination ->
+                Destination.entries.forEach { destination ->
                     NavigationBarItem(
                         selected = selectedDestination == destination,
                         onClick = {
@@ -113,7 +102,7 @@ fun NavigationBar(modifier: Modifier = Modifier){
                         },
                         icon = {
                             Icon(
-                                destination.icon,
+                                painter = painterResource(id = destination.iconRes),
                                 contentDescription = destination.contentDescription
                             )
                         },
