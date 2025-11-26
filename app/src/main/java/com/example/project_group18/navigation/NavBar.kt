@@ -3,6 +3,7 @@ package com.example.project_group18.navigation
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarDefaults
@@ -18,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -103,7 +105,8 @@ fun NavigationBar(modifier: Modifier = Modifier){
                         icon = {
                             Icon(
                                 painter = painterResource(id = destination.iconRes),
-                                contentDescription = destination.contentDescription
+                                contentDescription = destination.contentDescription,
+                                modifier = Modifier.size(24.dp)
                             )
                         },
                         label = { Text(destination.label) }
