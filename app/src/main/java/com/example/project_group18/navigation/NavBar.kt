@@ -29,15 +29,6 @@ import com.example.project_group18.R
 import com.example.project_group18.ui.LoginScreen
 import com.example.project_group18.ui.TimelineScreen
 
-/*@Composable
-fun TimelineScreen(modifier: Modifier = Modifier) {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ){
-        Text("Timeline")
-    }
-}*/
 
 @Composable
 fun SettingScreen(modifier: Modifier = Modifier) {
@@ -81,7 +72,6 @@ fun AppNavHost(
     }
 }
 
-
 @Composable
 fun NavigationBar(modifier: Modifier = Modifier){
     val navController = rememberNavController()
@@ -120,8 +110,3 @@ fun NavigationBar(modifier: Modifier = Modifier){
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun MainScreenPreview() {
-    NavigationBar()
-}
