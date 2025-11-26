@@ -1,4 +1,4 @@
-package com.example.project_group18.ui
+package com.example.project_group18.ui.timeline
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
