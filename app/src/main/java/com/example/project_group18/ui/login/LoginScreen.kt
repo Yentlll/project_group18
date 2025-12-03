@@ -19,6 +19,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.project_group18.R
@@ -66,7 +67,8 @@ fun LoginScreen() {
             password = it
         }, label = {
             Text(text = "Password")
-        })
+        }, visualTransformation = PasswordVisualTransformation()
+        )
 
         Spacer(Modifier.height(20.dp))
 
