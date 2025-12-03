@@ -8,7 +8,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,9 +25,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.project_group18.R
-import com.example.project_group18.ui.timeline.TimelineScreen
 import com.example.project_group18.ui.theme.Projectgroup18Theme
+import com.example.project_group18.ui.theme.TwatterBlue
+import com.example.project_group18.ui.theme.TwatterWhite
 
 
 @Composable
@@ -47,12 +52,12 @@ fun LoginScreen() {
         Spacer(Modifier.height(15.dp))
 
         Image(
-            painter = painterResource(id = R.drawable.logo_app),
+            painter = painterResource(id = R.drawable.logo_app_monochrome),
             contentDescription = "App Logo Twatter",
-            modifier = Modifier.size(120.dp)
+            modifier = Modifier.size(300.dp)
         )
 
-        Spacer(Modifier.height(150.dp))
+        Spacer(Modifier.height(30.dp))
 
         //Login form
 
@@ -72,9 +77,22 @@ fun LoginScreen() {
 
         Spacer(Modifier.height(20.dp))
 
-        Button(onClick = { /*TODO*/ }) {
-            Text(text = "Login")
+        Button(
+            onClick = { /*TODO*/ },
+            colors = ButtonDefaults.buttonColors(
+                containerColor = TwatterBlue,
+                contentColor = TwatterWhite
+            ),
+            shape = RoundedCornerShape(12.dp),
+            modifier = Modifier
+                .height(50.dp)
+                .width(150.dp)
+        ) {
+            Text(text = "Login", fontSize = 20.sp)
         }
+
+
+
 
     }
 }
