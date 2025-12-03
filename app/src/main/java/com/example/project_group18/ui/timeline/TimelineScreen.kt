@@ -15,7 +15,7 @@ data class Tweet(
 )
 
 @Composable
-fun TimelineScreen(user: String) {
+fun TimelineScreen() {
 
     //todo: maybe store tweets in database or ad fetch from an api???
     val tweets = listOf(
@@ -48,5 +48,5 @@ fun TimelineScreen(user: String) {
 @Preview(showBackground = true)
 @Composable
 fun TimelinePreview() {
-    TimelineScreen("Testuser")
+    TimelineScreen()
 }

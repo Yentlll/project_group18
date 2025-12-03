@@ -62,8 +62,8 @@ fun AppNavHost(
         Destination.entries.forEach{ destination ->
             composable(destination.route){
                 when (destination){
-                    Destination.LOGIN -> LoginScreen("john")
-                    Destination.TIMELINE -> TimelineScreen("john")
+                    Destination.LOGIN -> LoginScreen()
+                    Destination.TIMELINE -> TimelineScreen()
                     Destination.SETTINGS -> SettingScreen()
                 }
             }

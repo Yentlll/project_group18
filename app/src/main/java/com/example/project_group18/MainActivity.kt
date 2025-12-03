@@ -14,9 +14,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Projectgroup18Theme {
-                LoginScreen(
-                    user = "Testuser"
-                )
+                LoginScreen()
                 NavigationBar()
             }
             }
