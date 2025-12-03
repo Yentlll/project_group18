@@ -39,7 +39,7 @@ fun LoginScreen(user: String) {
         Spacer(Modifier.height(2.5.dp))
 
 
-        TimelineScreen(user = user)
+        //TimelineScreen(user = user)
     }
 }
 

@@ -33,14 +33,7 @@ fun TweetItem(tweet: Tweet) {
             text = tweet.content,
             style = MaterialTheme.typography.bodyLarge
         )
-
-
-
-
     }
-
-
-
 }
 
 @Preview(showBackground = true)
