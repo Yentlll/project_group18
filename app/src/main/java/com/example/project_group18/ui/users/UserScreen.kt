@@ -1,23 +1,56 @@
 package com.example.project_group18.ui.users
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.project_group18.ui.login.LoginScreen
 import com.example.project_group18.ui.theme.Projectgroup18Theme
 
 @Composable
-fun UserScreen(modifier: Modifier = Modifier) {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ){
-        Text("Settings")
+fun UserScreen(viewModel: UserViewModel = viewModel() ) {
+
+    val user by viewModel.user.collectAsState()
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Top
+    ) {
+
+        Spacer(modifier = Modifier.height(160.dp))
+        Button(
+            onClick = { viewModel.loadUser() },
+        ) {
+            Text("Load a random Twatter user")
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        if (user != null) {
+            Text("ID: ${user!!.id}")
+            Text("Name: ${user!!.name}")
+            Text("Username: ${user!!.username}")
+            Text("Email: ${user!!.email}")
+        }
     }
+
 }
 
 @Preview(showBackground = true)
