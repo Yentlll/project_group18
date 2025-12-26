@@ -5,24 +5,28 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.Url
 
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(GsonConverterFactory.create())
     .build()
 
+data class TweetsResponse(
+    val tweets: List<Tweet>
+)
+
 interface TweetApi {
 
-    @GET("tweets")
-    suspend fun getTweets(
-        @Header("Authorization") token: String
-    ): List<Tweet>
+    // Dynamic URL because it's a raw file on GitLab
+    @GET
+    suspend fun getTweets(@Url url: String): TweetsResponse
 }
 
 object RetrofitClient {
 
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("https://api.example.com/")
-        .addConverterFactory(GsonConverterFactory.create())
+    private val retrofit = retrofit2.Retrofit.Builder()
+        .baseUrl("https://gitlab.com/") // base required but ignored because of full URL
+        .addConverterFactory(retrofit2.converter.gson.GsonConverterFactory.create())
         .build()
 
     val api: TweetApi = retrofit.create(TweetApi::class.java)

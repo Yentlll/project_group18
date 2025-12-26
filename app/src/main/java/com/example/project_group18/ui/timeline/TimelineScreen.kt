@@ -11,13 +11,10 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 
-data class Tweet(
-    val user: String,
-    val content: String
-)
+
 
 @Composable
-fun TimelineScreen(viewModel: TimelineViewModel = TimelineViewModel()) {
+fun TimelineScreen(viewModel: TimelineViewModel = viewModel()) {
 
 //todo: maybe store tweets in database or ad fetch from an api???
 

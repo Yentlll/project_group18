@@ -1,5 +1,6 @@
 package com.example.project_group18.ui.timeline
 
+import android.util.Log
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,11 +15,14 @@ class TimelineViewModel : ViewModel() {
     fun loadTweets() {
         viewModelScope.launch {
             try {
-                tweets.value = RetrofitClient.api.getTweets(
-                    "Bearer FAKE_TOKEN_PROJECT_GROUP18"
+                val response = RetrofitClient.api.getTweets(
+                    "https://gitlab.ti.howest.be/aykan.ridvanov/api_project_mobile/-/raw/main/db.json?ref_type=heads"
                 )
+                Log.d("TimelineViewModel", "Response tweets size: ${response.tweets.size}")
+                tweets.value = response.tweets
             } catch (e: Exception) {
-                tweets.value = emptyList() // safe fallback
+                Log.e("TimelineViewModel", "Error fetching tweets", e)
+                tweets.value = emptyList()
             }
         }
     }
