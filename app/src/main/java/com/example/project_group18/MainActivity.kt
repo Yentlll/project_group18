@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import com.example.project_group18.navigation.NavigationBar
 import com.example.project_group18.ui.login.LoginScreen
 import com.example.project_group18.ui.theme.Projectgroup18Theme
+import com.example.project_group18.ui.users.UserScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,6 +16,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             Projectgroup18Theme {
                 LoginScreen()
+                UserScreen()
                 NavigationBar()
             }
             }

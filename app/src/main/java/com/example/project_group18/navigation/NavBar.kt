@@ -18,6 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -26,6 +27,7 @@ import androidx.navigation.compose.rememberNavController
 
 import com.example.project_group18.R
 import com.example.project_group18.ui.login.LoginScreen
+import com.example.project_group18.ui.theme.Projectgroup18Theme
 import com.example.project_group18.ui.timeline.TimelineScreen
 import com.example.project_group18.ui.users.UserScreen
 
@@ -38,7 +40,7 @@ enum class Destination(
 ) {
     LOGIN("Login Screen","Login Screen", R.drawable.login, "login"),
     TIMELINE("Timeline","Timeline", R.drawable.timeline, "timeline"),
-    SETTINGS("Users","Users", R.drawable.settings, "users")
+    USERS("Users","Users", R.drawable.settings, "users")
 }
 
 @Composable
@@ -55,7 +57,7 @@ fun AppNavHost(
                 when (destination){
                     Destination.LOGIN -> LoginScreen()
                     Destination.TIMELINE -> TimelineScreen()
-                    Destination.SETTINGS -> UserScreen()
+                    Destination.USERS -> UserScreen()
                 }
             }
         }
@@ -97,6 +99,14 @@ fun NavigationBar(modifier: Modifier = Modifier){
         }
     ) { contentPadding ->
         AppNavHost(navController, startDestination, modifier = Modifier.padding(contentPadding))
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun LoginPreview() {
+    Projectgroup18Theme {
+        NavigationBar()
     }
 }
 
