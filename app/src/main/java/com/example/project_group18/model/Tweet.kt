@@ -1,7 +1,7 @@
-package com.example.project_group18.model;
+package com.example.project_group18.model
 
 
-import kotlinx.serialization.Serializable;
+import kotlinx.serialization.Serializable
 
 @Serializable
 data class tweet (
