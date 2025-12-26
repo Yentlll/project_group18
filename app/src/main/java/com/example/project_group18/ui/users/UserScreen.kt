@@ -40,12 +40,24 @@ fun UserScreen(viewModel: UserViewModel = viewModel() ) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        if (user != null) {
+        val showSecrets = false
+        if (user != null && !showSecrets) {
             Text("ID: ${user!!.id}")
             Text("Name: ${user!!.name}")
             Text("Username: ${user!!.username}")
             Text("Email: ${user!!.email}")
+        }else{
+            Text("ID: ${user!!.id}")
+            Text("Name: ${user!!.name}")
+            Text("Username: ${user!!.username}")
+            Text("Email: ${user!!.email}")
+            Text("Secret Info!! Now you can Dox this person :)")
+            Text("Street: ${user!!.address.street}")
+            Text("Suite: ${user!!.address.suite}")
+            Text("City: ${user!!.address.city}")
+            Text("Zipcode: ${user!!.address.zipcode}")
         }
+
     }
 
 }
