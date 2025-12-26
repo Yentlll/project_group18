@@ -14,12 +14,12 @@ interface UserApi{
     ): User
 }
 
-object RetrofitClient {
+object RetrofitClientUser {
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://jsonplaceholder.typicode.com/") // base required but ignored because of full URL
+        .baseUrl("https://jsonplaceholder.typicode.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val api: TweetApi = retrofit.create(TweetApi::class.java)
+    val api: UserApi = retrofit.create(UserApi::class.java)
 }
