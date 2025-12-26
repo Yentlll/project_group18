@@ -27,17 +27,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.project_group18.R
 import com.example.project_group18.ui.login.LoginScreen
 import com.example.project_group18.ui.timeline.TimelineScreen
+import com.example.project_group18.ui.users.UserScreen
 
-
-@Composable
-fun SettingScreen(modifier: Modifier = Modifier) {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ){
-        Text("Settings")
-    }
-}
 
 enum class Destination(
     val route: String,
@@ -47,7 +38,7 @@ enum class Destination(
 ) {
     LOGIN("Login Screen","Login Screen", R.drawable.login, "login"),
     TIMELINE("Timeline","Timeline", R.drawable.timeline, "timeline"),
-    SETTINGS("Settings","Settings", R.drawable.settings, "settings")
+    SETTINGS("Users","Users", R.drawable.settings, "users")
 }
 
 @Composable
@@ -64,7 +55,7 @@ fun AppNavHost(
                 when (destination){
                     Destination.LOGIN -> LoginScreen()
                     Destination.TIMELINE -> TimelineScreen()
-                    Destination.SETTINGS -> SettingScreen()
+                    Destination.SETTINGS -> UserScreen()
                 }
             }
         }
