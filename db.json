@@ -1,0 +1,16 @@
+{
+  "tweets": [
+    { "user": "alice", "content": "Welcome to Twatter!" },
+    { "user": "bob", "content": "I'm exploiting an IDOR right now." },
+    { "user": "charlie", "content": "Malware POST request sent successfully." },
+    { "user": "you", "content": "I just joined Twatter!!!" },
+    { "user": "dave", "content": "Just intercepted my own API traffic… why is debugging so fun?" },
+    { "user": "eve", "content": "If your password is 'password123', we need to talk." },
+    { "user": "mallory", "content": "Wrote a Frida script and broke my own app. 10/10 would do again." },
+    { "user": "trent", "content": "Room database is cool until you forget to write a DAO." },
+    { "user": "peggy", "content": "Accidentally granted my app CAMERA permission… ignore the noise." },
+    { "user": "oscar", "content": "Just decompiled Twatter. Why is everything so… vulnerable? 😂" },
+    { "user": "victor", "content": "SSL pinning bypassed. Time to feel powerful." },
+    { "user": "wendy", "content": "I swear my emulator lagged when I enabled root detection." }
+  ]
+}
