@@ -18,35 +18,33 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.project_group18.ui.theme.Projectgroup18Theme
 
+const val showSecrets = false
 @Composable
 fun UserScreen(viewModel: UserViewModel = viewModel() ) {
-
     val user by viewModel.user.collectAsState()
 
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
+        modifier = Modifier.fillMaxSize().padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-
         Spacer(modifier = Modifier.height(160.dp))
-        Button(
-            onClick = { viewModel.loadUser() },
-        ) {
+        Button(onClick = { viewModel.loadUser() }) {
             Text("Load a random Twatter user")
         }
-
         Spacer(modifier = Modifier.height(16.dp))
 
-        val showSecrets = true
-        if (user != null && !showSecrets) {
+        if (user == null) {
+            Text("Loading user...")
+            return@Column
+        }
+
+        if (!showSecrets) {
             Text("ID: ${user!!.id}")
             Text("Name: ${user!!.name}")
             Text("Username: ${user!!.username}")
             Text("Email: ${user!!.email}")
-        }else if (user != null && showSecrets){
+        } else {
             Text("ID: ${user!!.id}")
             Text("Name: ${user!!.name}")
             Text("Username: ${user!!.username}")
@@ -66,9 +64,7 @@ fun UserScreen(viewModel: UserViewModel = viewModel() ) {
             Text("Lat: ${user!!.address.geo.lat}")
             Text("Lng: ${user!!.address.geo.lng}")
         }
-
     }
-
 }
 
 @Preview(showBackground = true)
