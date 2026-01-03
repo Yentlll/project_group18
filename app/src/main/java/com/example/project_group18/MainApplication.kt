@@ -13,7 +13,7 @@ class MainApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        Room.databaseBuilder(
+        userDatabase = Room.databaseBuilder(
             applicationContext,
             UserDatabase::class.java,
             UserDatabase.NAME
