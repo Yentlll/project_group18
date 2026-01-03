@@ -90,9 +90,21 @@ fun LoginScreen() {
         ) {
             Text(text = "Login", fontSize = 20.sp)
         }
+        Spacer(Modifier.height(20.dp))
 
-
-
+        Button(
+            onClick = { /*TODO*/ },
+            colors = ButtonDefaults.buttonColors(
+                containerColor = TwatterBlue,
+                contentColor = TwatterWhite
+            ),
+            shape = RoundedCornerShape(12.dp),
+            modifier = Modifier
+                .height(50.dp)
+                .width(150.dp)
+        ) {
+            Text(text = "Register", fontSize = 20.sp)
+        }
 
     }
 }
