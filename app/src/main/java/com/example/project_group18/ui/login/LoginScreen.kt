@@ -26,6 +26,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.project_group18.R
 import com.example.project_group18.ui.theme.Projectgroup18Theme
 import com.example.project_group18.ui.theme.TwatterBlue
@@ -33,15 +34,11 @@ import com.example.project_group18.ui.theme.TwatterWhite
 
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(loginViewModel: LoginScreenViewModel = viewModel()) { // Added ViewModel parameter
 
-    //Variables for login
-    var username by remember {
-        mutableStateOf("") }
-    var password by remember {
-        mutableStateOf("") }
+    var username by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
 
-    //Logo twatter design
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -59,53 +56,46 @@ fun LoginScreen() {
 
         Spacer(Modifier.height(30.dp))
 
-        //Login form
-
         Text(text = "Login to your account")
 
-        OutlinedTextField(value = username, onValueChange = {
-            username = it
-        }, label = {
-            Text(text = "Username")
-        })
-        OutlinedTextField(value = password, onValueChange = {
-            password = it
-        }, label = {
-            Text(text = "Password")
-        }, visualTransformation = PasswordVisualTransformation()
+        OutlinedTextField(
+            value = username,
+            onValueChange = { username = it },
+            label = { Text(text = "Username") }
+        )
+        OutlinedTextField(
+            value = password,
+            onValueChange = { password = it },
+            label = { Text(text = "Password") },
+            visualTransformation = PasswordVisualTransformation()
         )
 
         Spacer(Modifier.height(20.dp))
 
         Button(
-            onClick = { /*TODO*/ },
-            colors = ButtonDefaults.buttonColors(
-                containerColor = TwatterBlue,
-                contentColor = TwatterWhite
-            ),
+            onClick = { /* Login ignored for now */ },
+            colors = ButtonDefaults.buttonColors(containerColor = TwatterBlue, contentColor = TwatterWhite),
             shape = RoundedCornerShape(12.dp),
-            modifier = Modifier
-                .height(50.dp)
-                .width(150.dp)
+            modifier = Modifier.height(50.dp).width(150.dp)
         ) {
             Text(text = "Login", fontSize = 20.sp)
         }
+
         Spacer(Modifier.height(20.dp))
 
         Button(
-            onClick = { /*TODO*/ },
-            colors = ButtonDefaults.buttonColors(
-                containerColor = TwatterBlue,
-                contentColor = TwatterWhite
-            ),
+            onClick = {
+                // CALL THE VIEWMODEL HERE
+                if (username.isNotEmpty() && password.isNotEmpty()) {
+                    loginViewModel.registerUser(username, password)
+                }
+            },
+            colors = ButtonDefaults.buttonColors(containerColor = TwatterBlue, contentColor = TwatterWhite),
             shape = RoundedCornerShape(12.dp),
-            modifier = Modifier
-                .height(50.dp)
-                .width(150.dp)
+            modifier = Modifier.height(50.dp).width(150.dp)
         ) {
             Text(text = "Register", fontSize = 20.sp)
         }
-
     }
 }
 

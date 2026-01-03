@@ -9,6 +9,6 @@ import com.example.project_group18.User
 interface UserDao {
 
     @Insert
-    fun registerUser(user: User)
+    suspend fun registerUser(user: User)
 
 }
