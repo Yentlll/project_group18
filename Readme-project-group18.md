@@ -15,22 +15,23 @@ A brief summary about the application
 - ⌛ = Work in progress
 
  
-| Status | Description                         | Details |     |
-| ------ | ----------------------------------- | ------- | --- |
-| ⌛     | **Application**                     |         |     |
-| ✔️     | 2 UI screens                        |         |     |
-| ⌛     | Secure API request<br>              |         |     |
-|        | SSL pinning (Bonus)                 |         |     |
-|        | API request with IDOR               |         |     |
-| ⌛     | Connection to room database         |         |     |
-|        | Secure storage                      |         |     |
-|        |                                     |         |     |
-|        | **Security**                        |         |     |
-|        | Unsafe storage                      |         |     |
-|        | Malware                             |         |     |
-|        | Frida functionality                 |         |     |
-|        | Detect root and block functionality |         |     |
-|        |                                     |         |     |
+| Status | Description                     | Details |     |
+| ------ | --------------------------------| ------- | --- |
+|⌛| **Application**                       |         |     |
+|✔️| 2 UI screens                          |         |     |
+|⌛| Secure API request<br>                |         |     |
+|  | SSL pinning (Bonus)                   |         |     |
+|⌛| API request with IDOR                 |         |     |
+|⌛| Connection to room database           |         |     |
+|  | Secure storage                        |         |     |
+|  |                                       |         |     |
+|  | **Security**                          |         |     |
+|  | Unsafe storage                        |         |     |
+|  | Malware                               |         |     |
+|  | Frida functionality                   |         |     |
+|⌛| Functionality change decompile compile|         |     |
+|  | Detect root and block functionality   |         |     |
+|  |                                       |         |     |
 
 
 ## Overview app
