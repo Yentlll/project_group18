@@ -15,12 +15,19 @@ class LoginScreenViewModel : ViewModel() {
 
     private val userDao = MainApplication.userDatabase.getUserDao()
 
-    var loggedInUser by mutableStateOf<String?>(null)
+    var popupMessage by mutableStateOf<String?>(null)
 
     fun registerUser(user: String, pass: String) {
-        val encodedPassword = Base64.encodeToString(pass.toByteArray(), Base64.NO_WRAP)
         viewModelScope.launch(Dispatchers.IO) {
-            userDao.registerUser(User(username = user, password = encodedPassword))
+            val existingUser = userDao.getUserByUsername(user)
+
+            if (existingUser != null) {
+                popupMessage = "Registration failed: User already exists!"
+            } else {
+                val encodedPassword = Base64.encodeToString(pass.toByteArray(), Base64.NO_WRAP)
+                userDao.registerUser(User(username = user, password = encodedPassword))
+                popupMessage = "Registration successful!"
+            }
         }
     }
 
@@ -29,8 +36,14 @@ class LoginScreenViewModel : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             val foundUser = userDao.loginUser(user, encodedPassword)
             if (foundUser != null) {
-                loggedInUser = foundUser.username
+                popupMessage = "Successfully logged in as ${foundUser.username}!"
+            } else {
+                popupMessage = "Login failed: Wrong username or password."
             }
         }
+    }
+
+    fun dismissDialog() {
+        popupMessage = null
     }
 }
