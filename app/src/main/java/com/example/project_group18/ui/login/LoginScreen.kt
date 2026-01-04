@@ -34,7 +34,7 @@ import com.example.project_group18.ui.theme.TwatterWhite
 
 
 @Composable
-fun LoginScreen(loginViewModel: LoginScreenViewModel = viewModel()) { // Added ViewModel parameter
+fun LoginScreen(loginViewModel: LoginScreenViewModel = viewModel()) {
 
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -47,6 +47,12 @@ fun LoginScreen(loginViewModel: LoginScreenViewModel = viewModel()) { // Added V
         verticalArrangement = Arrangement.Top
     ) {
         Spacer(Modifier.height(15.dp))
+
+        // Logged in message
+        loginViewModel.loggedInUser?.let {
+            Text(text = "Logged in as $it", fontSize = 24.sp, color = TwatterBlue)
+            Spacer(Modifier.height(20.dp))
+        }
 
         Image(
             painter = painterResource(id = R.drawable.logo_app_monochrome),
@@ -73,7 +79,11 @@ fun LoginScreen(loginViewModel: LoginScreenViewModel = viewModel()) { // Added V
         Spacer(Modifier.height(20.dp))
 
         Button(
-            onClick = { /* Login ignored for now */ },
+            onClick = {
+                if (username.isNotEmpty() && password.isNotEmpty()) {
+                    loginViewModel.login(username, password)
+                }
+            },
             colors = ButtonDefaults.buttonColors(containerColor = TwatterBlue, contentColor = TwatterWhite),
             shape = RoundedCornerShape(12.dp),
             modifier = Modifier.height(50.dp).width(150.dp)
@@ -85,7 +95,6 @@ fun LoginScreen(loginViewModel: LoginScreenViewModel = viewModel()) { // Added V
 
         Button(
             onClick = {
-                // CALL THE VIEWMODEL HERE
                 if (username.isNotEmpty() && password.isNotEmpty()) {
                     loginViewModel.registerUser(username, password)
                 }
