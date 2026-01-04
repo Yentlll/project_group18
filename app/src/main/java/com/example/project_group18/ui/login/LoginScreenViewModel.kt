@@ -30,6 +30,11 @@ class LoginScreenViewModel : ViewModel() {
 
 
     fun registerUser(user: String, pass: String) {
+        if (isRooted){
+            popupMessage = "Registration failed: Device is rooted!"
+            return
+        }
+
         viewModelScope.launch(Dispatchers.IO) {
             val existingUser = userDao.getUserByUsername(user)
 
@@ -44,6 +49,11 @@ class LoginScreenViewModel : ViewModel() {
     }
 
     fun login(user: String, pass: String) {
+        if (isRooted){
+            popupMessage = "Registration failed: Device is rooted!"
+            return
+        }
+
         val encodedPassword = Base64.encodeToString(pass.toByteArray(), Base64.NO_WRAP)
         viewModelScope.launch(Dispatchers.IO) {
             val foundUser = userDao.loginUser(user, encodedPassword)
