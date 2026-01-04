@@ -24,15 +24,28 @@ class LoginScreenViewModel : ViewModel() {
 
 
     fun checkRootStatus(context: Context) {
-        val rootBeer = RootBeer(context)
-        isRooted = rootBeer.isRooted
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val rootBeer = RootBeer(context)
+                val result = rootBeer.isRooted
+
+                launch(Dispatchers.Main) {
+                    isRooted = result
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                launch(Dispatchers.Main) {
+                    isRooted = false
+                }
+            }
+        }
     }
 
 
     fun registerUser(user: String, pass: String) {
         if (isRooted){
-            popupMessage = "Registration failed: Device is rooted!"
-            return
+                popupMessage = "Registration failed: Device is rooted!"
+                return
         }
 
         viewModelScope.launch(Dispatchers.IO) {
