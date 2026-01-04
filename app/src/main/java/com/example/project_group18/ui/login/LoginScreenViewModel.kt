@@ -1,5 +1,6 @@
 package com.example.project_group18.ui.login
 
+import android.content.Context
 import android.util.Base64
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -8,6 +9,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.project_group18.MainApplication
 import com.example.project_group18.User
+import com.scottyab.rootbeer.RootBeer
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -16,6 +18,16 @@ class LoginScreenViewModel : ViewModel() {
     private val userDao = MainApplication.userDatabase.getUserDao()
 
     var popupMessage by mutableStateOf<String?>(null)
+
+    var isRooted by mutableStateOf(false)
+        private set
+
+
+    fun checkRootStatus(context: Context) {
+        val rootBeer = RootBeer(context)
+        isRooted = rootBeer.isRooted
+    }
+
 
     fun registerUser(user: String, pass: String) {
         viewModelScope.launch(Dispatchers.IO) {
