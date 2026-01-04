@@ -26,7 +26,7 @@ A brief summary about the application
 |  | Secure storage                        |         |     |
 |  |                                       |         |     |
 |  | **Security**                          |         |     |
-|  | Unsafe storage                        |         |     |
+|✔️| Unsafe storage                        |         |     |
 |  | Malware                               |         |     |
 |  | Frida functionality                   |         |     |
 |⌛| Functionality change decompile compile|         |     |
