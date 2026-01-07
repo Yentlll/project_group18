@@ -16,22 +16,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 @Composable
 fun TimelineScreen(viewModel: TimelineViewModel = viewModel()) {
 
-//todo: maybe store tweets in database or ad fetch from an api???
-
-//        Tweet("alice", "Welcome to Twatter!"),
-//        Tweet("bob", "I'm exploiting an IDOR right now."),
-//        Tweet("charlie", "Malware POST request sent successfully."),
-//        Tweet("you", "I just joined Twatter!!!"),
-//        Tweet("dave", "Just intercepted my own API traffic… why is debugging so fun?"),
-//        Tweet("eve", "If your password is 'password123', we need to talk."),
-//        Tweet("mallory", "Wrote a Frida script and broke my own app. 10/10 would do again."),
-//        Tweet("trent", "Room database is cool until you forget to write a DAO."),
-//        Tweet("peggy", "Accidentally granted my app CAMERA permission… ignore the noise."),
-//        Tweet("oscar", "Just decompiled Twatter. Why is everything so… vulnerable? 😂"),
-//        Tweet("victor", "SSL pinning bypassed. Time to feel powerful."),
-//        Tweet("wendy", "I swear my emulator lagged when I enabled root detection.")
-//    )
-
     LaunchedEffect(Unit) {
         viewModel.loadTweets()
     }
