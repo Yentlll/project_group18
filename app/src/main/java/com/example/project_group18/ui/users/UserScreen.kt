@@ -18,6 +18,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
@@ -30,7 +31,9 @@ const val showSecrets = false
 fun UserScreen(viewModel: UserViewModel = viewModel() ) {
     val context = LocalContext.current
     val user by viewModel.user.collectAsState()
+
     var idText by remember { mutableStateOf("") }
+    val encryptionSuccess by viewModel.encryptionSuccess.collectAsState()
 
     Column(
         modifier = Modifier.fillMaxSize().padding(16.dp),
@@ -91,6 +94,11 @@ fun UserScreen(viewModel: UserViewModel = viewModel() ) {
             }
         }) {
             Text("Encrypt user data in a file")
+        }
+        if (encryptionSuccess) {
+            Text(
+                text = "Encryption successful!"
+            )
         }
     }
 }
