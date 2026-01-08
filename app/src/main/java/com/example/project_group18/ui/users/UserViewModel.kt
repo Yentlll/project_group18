@@ -2,8 +2,6 @@ package com.example.project_group18.ui.users
 
 
 import android.content.Context
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.project_group18.network.RetrofitClientUser
@@ -19,11 +17,15 @@ class UserViewModel : ViewModel() {
     private val _user = MutableStateFlow<User?>(null)
     val user: StateFlow<User?> = _user
 
+    private val _encryptionSuccess = MutableStateFlow(false)
+    val encryptionSuccess: StateFlow<Boolean> = _encryptionSuccess
+
     fun loadUser() {
         val randomInteger = ThreadLocalRandom.current().nextInt(1, 10)
         viewModelScope.launch {
             _user.value = RetrofitClientUser.api.getUserById(randomInteger)
         }
+        resetEncryptionSuccess()
     }
 
     fun encryptUserFile(id: Int, context: Context, fileName: String = "user_data_$id.txt") {
@@ -40,13 +42,28 @@ class UserViewModel : ViewModel() {
             val file = File(context.filesDir, fileName)
             file.writeText(userData)
 
-            val secureStorage = SecureStorage(context)
-            secureStorage.encryptFile(file,"encrypted-user_data_$id.txt")
+            val encryptedFileName = "encrypted-user_data_$id.txt"
+            val encryptedFile = File(context.filesDir, encryptedFileName)
 
-            file.delete()
+            if (encryptedFile.exists()) {
+                encryptedFile.delete()
+            }
+
+            try {
+                val secureStorage = SecureStorage(context)
+                secureStorage.encryptFile(file, encryptedFileName)
+                _encryptionSuccess.value = true
+            } finally {
+                if (file.exists()) file.delete()
+            }
 
         }
     }
+
+    fun resetEncryptionSuccess() {
+        _encryptionSuccess.value = false
+    }
+
 }
 
 

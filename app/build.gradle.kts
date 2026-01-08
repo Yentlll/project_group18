@@ -47,6 +47,9 @@ android {
 }
 
 dependencies {
+
+    implementation("androidx.security:security-crypto:1.1.0-alpha03")
+
     val room_version = "2.8.4"
 
     implementation("androidx.room:room-runtime:$room_version")
