@@ -63,7 +63,7 @@ class LoginScreenViewModel : ViewModel() {
 
     fun login(user: String, pass: String) {
         if (isRooted){
-            popupMessage = "Registration failed: Device is rooted!"
+            popupMessage = "Login failed: Device is rooted!"
             return
         }
 
