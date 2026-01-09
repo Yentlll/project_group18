@@ -23,7 +23,7 @@ A brief summary about the application
 |  | SSL pinning (Bonus)                   |         |     |
 |✔️| API request with IDOR                 |         |     |
 |✔️| Connection to room database           |         |     |
-|  | Secure storage                        |         |     |
+|✔️| Secure storage                        |         |     |
 |  |                                       |         |     |
 |  | **Security**                          |         |     |
 |✔️| Unsafe storage                        |         |     |
