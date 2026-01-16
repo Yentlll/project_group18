@@ -28,21 +28,21 @@ class UserViewModel : ViewModel() {
         resetEncryptionSuccess()
     }
 
-    fun encryptUserFile(id: Int, context: Context, fileName: String = "user_data_$id.txt") {
+    fun encryptUserFile(user: User, context: Context) {
         viewModelScope.launch {
-            val fetchedUser = RetrofitClientUser.api.getUserById(id)
+            val fileName = "user_data_${user.name}.txt"
 
             val userData = """
-            ID: ${fetchedUser.id}
-            Name: ${fetchedUser.name}
-            Username: ${fetchedUser.username}
-            Email: ${fetchedUser.email}
+            ID: ${user.id}
+            Name: ${user.name}
+            Username: ${user.username}
+            Email: ${user.email}
             """.trimIndent()
 
             val file = File(context.filesDir, fileName)
             file.writeText(userData)
 
-            val encryptedFileName = "encrypted-user_data_$id.txt"
+            val encryptedFileName = "encrypted-$fileName"
             val encryptedFile = File(context.filesDir, encryptedFileName)
 
             if (encryptedFile.exists()) {
@@ -56,7 +56,6 @@ class UserViewModel : ViewModel() {
             } finally {
                 if (file.exists()) file.delete()
             }
-
         }
     }
 
