@@ -1,4 +1,4 @@
-package com.example.project_group18.navigation
+package com.example.project_group18.ui.navigation
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size

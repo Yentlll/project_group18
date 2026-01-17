@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.project_group18.ui.theme.Projectgroup18Theme
 
-const val showSecrets = true
+const val showSecrets = false
 @Composable
 fun UserScreen(viewModel: UserViewModel = viewModel() ) {
     val context = LocalContext.current
