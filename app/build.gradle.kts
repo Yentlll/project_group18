@@ -55,6 +55,7 @@ dependencies {
     implementation("androidx.room:room-runtime:$room_version")
     implementation("androidx.room:room-ktx:$room_version") // optional but recommended
     ksp("androidx.room:room-compiler:$room_version")       // KSP annotation processor
+    implementation("com.google.android.gms:play-services-location:21.0.1")
 
     // Compose & Kotlin dependencies
     implementation(libs.androidx.core.ktx)
@@ -69,6 +70,8 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.navigation.compose)
+
+
 
 
     //Detecting root
