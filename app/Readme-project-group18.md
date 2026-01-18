@@ -27,7 +27,7 @@ A brief summary about the application
 |        |                                     |         |     |
 |        | **Security**                        |         |     |
 |        | Unsafe storage                      |         |     |
-|        | Malware                             |         |     |
+|  ✔️    | Malware                             |         |     |
 |        | Frida functionality                 |         |     |
 |        | Detect root and block functionality |         |     |
 |        |                                     |         |     |
