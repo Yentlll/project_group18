@@ -16,7 +16,7 @@ A brief summary about the application
 
  
 | Status | Description                     | Details |     |
-| ------ | --------------------------------| ------- | --- |
+| ---- | --------------------------------| ------- | --- |
 |⌛| **Application**                       |         |     |
 |✔️| 2 UI screens                          |         |     |
 |✔️| Secure API request<br>                |         |     |
@@ -27,7 +27,7 @@ A brief summary about the application
 |  |                                       |         |     |
 |  | **Security**                          |         |     |
 |✔️| Unsafe storage                        |         |     |
-|  | Malware                               |         |     |
+|✔️| Malware                               |         |     |
 |✔️| Frida functionality                   |         |     |
 |⌛| Functionality change decompile compile|         |     |
 |✔️| Detect root and block functionality   |         |     |
