@@ -38,34 +38,75 @@ A brief summary about the application
 Describe the implementation of the following topics.
 
 ### ![](ReadmeImages/Screenshot.png) Screenshots
-Give screenshots for every screen in the application. Give each screen an unique name.
+#### First Screen: Login Screen
+* This screen is meant to login to the app using the Room database
+* ![](ReadmeImages/login_screen.png)
+#### Second Screen: Timeline Screen
+* This Screen is used to render the timeline off the app making a request to a file
+* ![](ReadmeImages/timeline_screen.png)
+#### Third Screen: Users Screen
+* This Screen is used to request a random Twatter user thats pulled from a json file online
+* ![](ReadmeImages/user_screen.png)
+
 
 ### ![](ReadmeImages/API.png) Secure API request
 Request to server x retrieving JSON in the following format displayed in screen x.
 
+
+
 ### ![](ReadmeImages/API.png) API request with IDOR
 Request to server x retrieving JSON in the following format displayed in screen x.
+
+
 
 ### ![](ReadmeImages/Database.png) Room database
 Type of data stored in the database used in screen x and displayed in screen y.
 
+
+
 ### ![](ReadmeImages/Database.png) Secure storage
 Type of data stored used in screen x and displayed in screen y.
+
+
 
 ### ![](ReadmeImages/Database.png) Unsecure storage
 Type of data stored used in screen x and displayed in screen y.
 
+
+
 ### ![](ReadmeImages/Malware.png) Malware
 Implementation of malware.
 
-### ![](ReadmeImages/Frida.png) Frida
-Detail implementation of Frida
+
 
 ### ![](ReadmeImages/Root.png) Root
-Implementation of the detecting root and block functionality.
+#### Root gets detected when trying to use the register button on the login screen
+* This is done using the imported module RootBeer
+![](ReadmeImages/root_detection.png)
+
+### ![](ReadmeImages/Frida.png) Frida
+#### Using Frida we bypassed the root detection that's blocks a functionality
+* The Following script was used in frida
+```
+Java.perform(function () {
+    var VM = Java.use("com.example.project_group18.ui.login.LoginScreenViewModel");
+    VM.isRooted.implementation = function () {
+        console.log("[+] isRooted() called — returning false");
+        return false;
+    };
+});
+``` 
+* The following command is used to attach the script to the application
+```
+frida -U -p 3110 -l .\change-isrooted.js
+```
+![](ReadmeImages/frida_bypass.png)
+
 
 ## Link to Panopto video
 https://
+
+
 
 ## Repositories
 - Code
