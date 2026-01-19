@@ -16,7 +16,7 @@ class TimelineViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val response = RetrofitClient.api.getTweets(
-                    "https://gitlab.ti.howest.be/aykan.ridvanov/api_project_mobile/-/raw/main/db.json?ref_type=heads"
+                    "https://gitlab.ti.howest.be/aykan.ridvanov/api_project_mobile/-/raw/main/tweets.json?ref_type=heads"
                 )
                 Log.d("TimelineViewModel", "Response tweets size: ${response.tweets.size}")
                 tweets.value = response.tweets
