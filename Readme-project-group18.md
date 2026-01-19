@@ -82,7 +82,7 @@ Implementation of malware.
 ### ![](ReadmeImages/Root.png) Root
 #### Root gets detected when trying to use the register button on the login screen
 * This is done using the imported module RootBeer
-![](ReadmeImages/root_detection.png)
+* ![](ReadmeImages/root_detection.png)
 
 ### ![](ReadmeImages/Frida.png) Frida
 #### Using Frida we bypassed the root detection that's blocks a functionality
