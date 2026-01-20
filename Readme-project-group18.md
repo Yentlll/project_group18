@@ -28,7 +28,7 @@ A brief summary about the application
 |✔️| Unsafe storage                        |         |     |
 |✔️| Malware                               |         |     |
 |✔️| Frida functionality                   |         |     |
-|✔️| Functionality change decompile compile|         |     |
+|⌛| Functionality change decompile compile|         |     |
 |✔️| Detect root and block functionality   |         |     |
 | |                                       |         |     |
 
