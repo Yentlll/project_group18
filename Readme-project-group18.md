@@ -84,8 +84,8 @@ Describe the implementation of the following topics.
 ----
 
 ### ![](ReadmeImages/Database.png) Secure storage
-Type of data stored used in screen x and displayed in screen y.
-
+* ![](ReadmeImages/Secrures_storage_Encryption.png)
+* Encrypts the sensitive userdata in the local storage
 ----
 
 ### ![](ReadmeImages/Database.png) Unsecure storage
@@ -96,7 +96,8 @@ Type of data stored used in screen x and displayed in screen y.
 ----
 
 ### ![](ReadmeImages/Malware.png) Malware
-Implementation of malware.
+* ![](ReadmeImages/Malware.png)
+* The malware shows the location of the device every minute.
 
 ----
 

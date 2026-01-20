@@ -39,11 +39,11 @@ class SecureStorage(context: Context) {
         Log.d("SecureStorage", "File encrypted: $encryptedName")
     }
 
-    fun decryptFile(encryptedName: String): ByteArray {
+    /*fun decryptFile(encryptedName: String): ByteArray {
         val encryptedFile = getEncryptedFile(encryptedName)
 
         return encryptedFile.openFileInput().use {
             it.readBytes()
         }
-    }
+    }*/
 }
