@@ -16,22 +16,21 @@ A brief summary about the application
 
  
 | Status | Description                     | Details |     |
-| ---- | --------------------------------| ------- | --- |
-|⌛| **Application**                       |         |     |
+| --- | --------------------------------| ------- | --- |
+|✅| **Application**                       |         |     |
 |✔️| 2 UI screens                          |         |     |
 |✔️| Secure API request<br>                |         |     |
-|  | SSL pinning (Bonus)                   |         |     |
 |✔️| API request with IDOR                 |         |     |
 |✔️| Connection to room database           |         |     |
 |✔️| Secure storage                        |         |     |
-|  |                                       |         |     |
-|  | **Security**                          |         |     |
+| |                                       |         |     |
+|✅ | **Security**                          |         |     |
 |✔️| Unsafe storage                        |         |     |
 |✔️| Malware                               |         |     |
 |✔️| Frida functionality                   |         |     |
-|⌛| Functionality change decompile compile|         |     |
+|✔️| Functionality change decompile compile|         |     |
 |✔️| Detect root and block functionality   |         |     |
-|  |                                       |         |     |
+| |                                       |         |     |
 
 
 ## Overview app

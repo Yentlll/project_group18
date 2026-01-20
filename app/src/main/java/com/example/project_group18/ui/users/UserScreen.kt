@@ -28,6 +28,7 @@ fun UserScreen(viewModel: UserViewModel = viewModel() ) {
     val user by viewModel.user.collectAsState()
 
     val encryptionSuccess by viewModel.encryptionSuccess.collectAsState()
+    val encryptionAttempted by viewModel.encryptionAttempted.collectAsState()
 
     val currentUser = user
 
@@ -82,10 +83,13 @@ fun UserScreen(viewModel: UserViewModel = viewModel() ) {
              }) {
             Text("Encrypt basic user data in a file")
         }
-        if (encryptionSuccess) {
-            Text(
-                text = "Encryption successful!"
-            )
+        if(encryptionAttempted){
+            if (encryptionSuccess) {
+                Text("Encryption successful!"
+                )
+            }else{
+                Text("Encryption failed")
+            }
         }
     }
 }
