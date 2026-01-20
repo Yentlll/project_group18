@@ -33,6 +33,7 @@ A brief summary about the application
 | |                                       |         |     |
 
 
+
 ## Overview app
 Describe the implementation of the following topics.
 
@@ -47,6 +48,7 @@ Describe the implementation of the following topics.
 * This Screen is used to request a random Twatter user thats pulled from a json file online
 * ![](ReadmeImages/user_screen.png)
 
+----
 
 ### ![](ReadmeImages/API.png) Secure API request
 #### The app makes a request to a .json file in a gitlab repository linked at: 
@@ -55,6 +57,7 @@ Describe the implementation of the following topics.
 * This gets displayed at the TimelineScreen in the application
 * It is possible to intercept the request using burpsuite but when you try to modify it it doesn't work
 
+----
 
 ### ![](ReadmeImages/API.png) API request with IDOR
 #### The app makes a request to another .json file stored in:
@@ -64,32 +67,45 @@ Describe the implementation of the following topics.
 * ![](ReadmeImages/display_user.png)
 * When intercepting this request using burp suite you can change the id and you will get another user instead of a random user   
 
-
+----
 
 ### ![](ReadmeImages/Database.png) Room database
-Type of data stored in the database used in screen x and displayed in screen y.
 
+#### When a user succesfully logs in. You see this screen:
+* ![](ReadmeImages/Screenshot_succesfull_login.png)
 
+* This make a call to the local room database to check if the user exists
+
+#### You can also register a user. This puts data inside of the local database.
+
+* This is how the database looks:
+![](ReadmeImages/Screenshot_database.png)
+
+----
 
 ### ![](ReadmeImages/Database.png) Secure storage
 Type of data stored used in screen x and displayed in screen y.
 
-
+----
 
 ### ![](ReadmeImages/Database.png) Unsecure storage
-Type of data stored used in screen x and displayed in screen y.
+#### We stored password using Base64 in our room database.
+* This is how it looks inside of the DB:
+* ![](ReadmeImages/Screenshot_unsafe_encryption.png)
 
-
+----
 
 ### ![](ReadmeImages/Malware.png) Malware
 Implementation of malware.
 
-
+----
 
 ### ![](ReadmeImages/Root.png) Root
 #### Root gets detected when trying to use the register button on the login screen
 * This is done using the imported module RootBeer
 * ![](ReadmeImages/root_detection.png)
+
+----
 
 ### ![](ReadmeImages/Frida.png) Frida
 #### Using Frida we bypassed the root detection that's blocks a functionality
@@ -109,11 +125,12 @@ frida -U -p 3110 -l .\change-isrooted.js
 ```
 ![](ReadmeImages/frida_bypass.png)
 
+----
 
 ## Link to Panopto video
 https://
 
-
+----
 
 ## Repositories
 - Code
