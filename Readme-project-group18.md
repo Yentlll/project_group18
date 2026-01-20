@@ -23,12 +23,12 @@ A brief summary about the application
 |✔️| API request with IDOR                 |         |     |
 |✔️| Connection to room database           |         |     |
 |✔️| Secure storage                        |         |     |
-| |                                       |         |     |
-|✅ | **Security**                          |         |     |
+| |                                         |         |     |
+|✅ | **Security**                         |         |     |
 |✔️| Unsafe storage                        |         |     |
 |✔️| Malware                               |         |     |
 |✔️| Frida functionality                   |         |     |
-|✔️| Functionality change decompile compile|         |     |
+|⌛| Functionality change decompile compile|         |     |
 |✔️| Detect root and block functionality   |         |     |
 | |                                       |         |     |
 
@@ -49,12 +49,20 @@ Describe the implementation of the following topics.
 
 
 ### ![](ReadmeImages/API.png) Secure API request
-Request to server x retrieving JSON in the following format displayed in screen x.
-
+#### The app makes a request to a .json file in a gitlab repository linked at: 
+```https://gitlab.ti.howest.be/aykan.ridvanov/api_project_mobile/-/raw/main/tweets.json?ref_type=heads```
+* ![](ReadmeImages/tweets_json_file.png)
+* This gets displayed at the TimelineScreen in the application
+* It is possible to intercept the request using burpsuite but when you try to modify it it doesn't work
 
 
 ### ![](ReadmeImages/API.png) API request with IDOR
-Request to server x retrieving JSON in the following format displayed in screen x.
+#### The app makes a request to another .json file stored in:
+```https://jsonplaceholder.typicode.com/users/{id}```
+* ![](ReadmeImages/users_json.png)
+* This is displayed at the UserScreen
+* ![](ReadmeImages/display_user.png)
+* When intercepting this request using burp suite you can change the id and you will get another user instead of a random user   
 
 
 
