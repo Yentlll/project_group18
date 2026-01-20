@@ -16,7 +16,7 @@ A brief summary about the application
 
  
 | Status | Description                     | Details |     |
-|  | --------------------------------| ------- | --- |
+| --- | --------------------------------| ------- | --- |
 |⌛| **Application**                       |         |     |
 |✔️| 2 UI screens                          |         |     |
 |✔️| Secure API request<br>                |         |     |
@@ -24,8 +24,8 @@ A brief summary about the application
 |✔️| API request with IDOR                 |         |     |
 |✔️| Connection to room database           |         |     |
 |✔️| Secure storage                        |         |     |
-|  |                                       |         |     |
-|✅| **Security**                          |         |     |
+| |                                       |         |     |
+|✅ | **Security**                          |         |     |
 |✔️| Unsafe storage                        |         |     |
 |✔️| Malware                               |         |     |
 |✔️| Frida functionality                   |         |     |
