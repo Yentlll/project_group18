@@ -1,0 +1,82 @@
+.method public static final AffirmationsApp(ZLandroidx/compose/runtime/Composer;II)V
+    .locals 23
+    .param p0, "showAffirmations"    # Z
+    .param p1, "$composer"    # Landroidx/compose/runtime/Composer;
+    .param p2, "$changed"    # I
+#p3 contains the default-parameter bitmask
+
+move/from16 v1, p3 
+# v1 = p3 default-parameter bitmask (so not the value of the parameter, just if there is a default)
+and-int/lit8 v4, v1, 0x1  
+# v4 = p3 & 0x1 → isolate bit 0 (first defaultable param)
+# v4 = 0 if parameter was explicitly passed, 
+# v4 = 1 if parameter not passed -> default
+
+PATH WHEN NO EXPLICIET PARAMETER GIVEN, SO DEFAULT WAY: v4 =  1, because showAffirmations is not passed
+
+
+if-eqz v4, :cond_0
+# if v4 == 0 -> go to cond_0, else follow path
+
+or-int/lit8 v3, v3, 0x6
+# (updates compose internal flags)
+move/from16 v6, p0
+# v6 = p0 assigned temporarily for caller's value
+goto :goto_1
+#jump to :goto_1 , skips (cond_0 , cond_2 for explicit-value)
+
+:goto_1
+move v14, v3
+# v14 = v3 , (dirty flag finalized)
+
+.local v14, "$dirty":I
+and-int/lit8 v3, v14, 0x3
+if-ne v3, v5, :cond_4
+invoke-interface {v15}, Landroidx/compose/runtime/Composer;->getSkipping()Z
+move-result v3
+if-nez v3, :cond_3
+goto :goto_2
+.line 80
+:cond_3
+invoke-interface {v15}, Landroidx/compose/runtime/Composer;->skipToGroupEnd()V
+move/from16 v19, v14
+move-object/from16 v16, v15
+goto/16 :goto_4
+#(nothing to do with default parameters), next will be 
+
+:cond_4
+:goto_2
+if-eqz v4, :cond_5
+# if v4 == 0 -> go to cond_5, else follow path (v4 = 1)
+
+const/4 v3, 0x1
+# v3 = 0x1 , 0x1 means TRUE
+move v13, v3
+# v13 = v3 = TRUE
+goto :goto_3
+#jump to :goto_3
+
+:goto_3
+new-instance v4, MainActivityKt$AffirmationsApp$1
+# v4 = new instance of AffirmationsApp 
+invoke-direct {v4, v13}, <init>(Z)V
+# use v4 = new instance, with v13 = TRUE for the init function
+
+
+can change the default parameter value WHERE:
+
+:cond_4
+:goto_2
+if-eqz v4, :cond_5
+# if v4 == 0 -> go to cond_5, else follow path (v4 = 1)
+
+const/4 v3, 0x1
+
+NEWCODE:
+:cond_4
+:goto_2
+if-eqz v4, :cond_5
+# if v4 == 0 -> go to cond_5, else follow path (v4 = 1)
+
+const/4 v3, 0x0
+
