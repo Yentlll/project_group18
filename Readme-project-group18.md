@@ -135,6 +135,6 @@ https://howest.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=63d0d0bb-e32b-47da-
 
 ## Repositories
 - Code
-  - https://gitlab.ti.howest.be/ti/2025-2026/s3/mobilesecurity/students/group-18/project_group18/-/tree/b2f5ac4fe4b4009145c9ce4730e669c9a2eccb80/
+  - https://gitlab.ti.howest.be/ti/2025-2026/s3/mobilesecurity/students/group-18/project_group18/-/tree/5a716a75b04acb4e5842a663498e7f7e645eff14/
 - APK
-  - [Link to repository]
+  - https://gitlab.ti.howest.be/ti/2025-2026/s3/mobilesecurity/students/group-18/project_group18/-/blob/5a716a75b04acb4e5842a663498e7f7e645eff14/APK/twatter.apk
