@@ -10,6 +10,10 @@ class EncryptionManager(private val context: Context) {
     fun encryptFile(file: File, encryptedFileName: String): Boolean {
         return try {
             val secureStorage = SecureStorage(context)
+            val encryptedFile = File(context.filesDir, encryptedFileName)
+            if (encryptedFile.exists()) {
+                encryptedFile.delete()
+            }
             secureStorage.encryptFile(file, encryptedFileName)
             file.delete()
             true
