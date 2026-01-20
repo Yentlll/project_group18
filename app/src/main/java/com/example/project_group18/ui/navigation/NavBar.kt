@@ -62,7 +62,7 @@ fun AppNavHost(
 }
 
 @Composable
-fun NavigationBar(modifier: Modifier = Modifier){
+fun AppScaffold(modifier: Modifier = Modifier){
     val navController = rememberNavController()
     val startDestination = Destination.LOGIN
     var selectedDestination by rememberSaveable { mutableStateOf(startDestination) }
@@ -103,7 +103,7 @@ fun NavigationBar(modifier: Modifier = Modifier){
 @Composable
 fun LoginPreview() {
     Projectgroup18Theme {
-        NavigationBar()
+        AppScaffold()
     }
 }
 
