@@ -96,7 +96,7 @@ Describe the implementation of the following topics.
 ----
 
 ### ![](ReadmeImages/Malware.png) Malware
-* ![](ReadmeImages/Malware.png)
+* ![](ReadmeImages/Malware_Locations.png)
 * The malware shows the location of the device every minute.
 
 ----
