@@ -129,7 +129,7 @@ frida -U -p 3110 -l .\change-isrooted.js
 ----
 
 ## Link to Panopto video
-https://
+https://howest.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=63d0d0bb-e32b-47da-a4b1-b3d80140ec53
 
 ----
 
