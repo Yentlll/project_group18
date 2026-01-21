@@ -2,7 +2,6 @@ package com.example.project_group18.security
 
 import android.content.Context
 import android.util.Log
-import com.example.project_group18.data.SecureStorage
 import java.io.File
 
 class EncryptionManager(private val context: Context) {
